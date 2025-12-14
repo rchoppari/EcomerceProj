@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!-- Define appender for console output -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Suppress specific cache miss messages at all levels -->
+    <logger name="org.springframework.security.web.util.matcher.AntPathRequestMatcher" level="OFF"/>
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="OFF"/>
+
+    <!-- Suppress HTTP message conversion and error handling issues -->
+    <logger name="org.springframework.http.converter" level="ERROR"/>
+    <logger name="org.apache.catalina.connector" level="ERROR"/>
+    <logger name="org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver" level="ERROR"/>
+
+    <!-- Suppress Spring Security and Web framework debug/trace logs -->
+    <logger name="org.springframework.security.web" level="WARN"/>
+    <logger name="org.springframework.web" level="WARN"/>
+    <logger name="org.springframework.web.servlet" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+
+    <!-- Keep application logs at DEBUG level -->
+    <logger name="com.ramya.ecomerce" level="DEBUG"/>
+
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+
